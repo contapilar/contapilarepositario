@@ -1,0 +1,197 @@
+<!DOCTYPE html>  
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout de Planos | Contapilar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body, h1, h2, p, a, button {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(135deg, #002244, #004080);
+      color: #fff;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    header p {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      font-weight: 400;
+    }
+
+    .plans {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 3rem 1rem;
+    }
+
+    .plan-card {
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      width: 300px;
+      text-align: center;
+      padding: 2.5rem 1rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      background-color: #fff;
+    }
+
+    .plan-card:nth-child(even) {
+      background-color: #e6f0ff;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    .plan-card svg {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 1rem;
+      fill: #004080;
+    }
+
+    .plan-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #002244;
+      font-weight: 700;
+    }
+
+    .plan-card p {
+      margin-bottom: 1.8rem;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .plan-card a {
+      display: inline-block;
+      padding: 0.9rem 1.8rem;
+      background-color: #004080;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .plan-card a:hover {
+      background-color: #002244;
+      transform: scale(1.05);
+    }
+
+    /* WhatsApp flutuante */
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      border-radius: 50%;
+      width: 65px;
+      height: 65px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+      z-index: 1000;
+    }
+
+    .whatsapp svg {
+      width: 32px;
+      height: 32px;
+      fill: white;
+    }
+
+    .whatsapp:hover {
+      transform: scale(1.15);
+    }
+
+    @media (max-width: 768px) {
+      .plans {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .plan-card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>CONTABILIDADE CONTAPILAR</h1>
+    <p>Planos de contabilidade e consultoria com excelência</p>
+  </header>
+
+  <section class="plans">
+
+    <div class="plan-card">
+      <svg viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"/>
+      </svg>
+      <h2>Plano MEI</h2>
+      <p>Atendimento completo para microempreendedores individuais</p>
+      <a href="https://pay.cakto.com.br/327segm_778760" target="_blank">Pagar Agora</a>
+    </div>
+
+    <div class="plan-card">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+      </svg>
+      <h2>Plano Profissionais Liberais</h2>
+      <p>Consultoria e gestão personalizada para profissionais</p>
+      <a href="https://pay.cakto.com.br/eavyprz_778785" target="_blank">Pagar Agora</a>
+    </div>
+
+    <div class="plan-card">
+      <svg viewBox="0 0 24 24">
+        <rect x="4" y="4" width="16" height="16" rx="2"/>
+      </svg>
+      <h2>Micro Empresas Simples</h2>
+      <p>Contabilidade completa para micro e pequenas empresas</p>
+      <a href="https://pay.cakto.com.br/3fmg84u_778814" target="_blank">Pagar Agora</a>
+    </div>
+
+    <div class="plan-card">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+      </svg>
+      <h2>Serviços Sob Demanda</h2>
+      <p>Contrate serviços específicos conforme sua necessidade</p>
+      <a href="https://pay.cakto.com.br/bbk6giq_778828" target="_blank">Pagar Agora</a>
+    </div>
+
+  </section>
+
+  <!-- WhatsApp flutuante -->
+  <a href="https://api.whatsapp.com/message/SV6QGFXTU4WNP1?autoload=1&app_absent=0" class="whatsapp" target="_blank">
+    <svg viewBox="0 0 24 24">
+      <path d="M16.667 14.667c-.267 0-.533-.04-.787-.12a.828.828 0 00-.787.187l-1.133.853c-1.52-.813-2.765-2.06-3.579-3.579l.853-1.133a.828.828 0 00.187-.787 6.627 6.627 0 00-.927-1.533.833.833 0 00-.747-.36H7.334c-.46 0-.833.373-.833.833 0 5.58 4.52 10.103 10.104 10.103.46 0 .833-.373.833-.833v-2.026c0-.353-.145-.693-.4-.942a1.33 1.33 0 00-.68-.344z"/>
+    </svg>
+  </a>
+
+</body>
+</html>
