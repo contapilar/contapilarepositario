@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contapilar | Contabilidade Estratégica</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T0BWK6D0JE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T0BWK6D0JE');
+</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Ajuste para navegação suave */
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    :root {
+      --amarelo-sol: #FFDE21;
+      --azul-conf: #0057B7;
+      --azul-escuro: #003087;
+      --cinza-claro: #F5F6FA;
+      --branco: #FFFFFF;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Inter', sans-serif; color: #333; background: var(--branco); line-height: 1.7; }
+    h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 600; }
+
+    header {
+      background: var(--azul-conf);
+      color: white;
+      padding: 1rem 5%;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--amarelo-sol);
+      text-decoration: none;
+      letter-spacing: -0.8px;
+      text-transform: uppercase;
+      /* GARANTE O POSICIONAMENTO À ESQUERDA */
+      margin-right: auto; 
+    }
+    .menu {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+      align-items: center;
+    }
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    .menu a:hover { color: var(--amarelo-sol); }
+
+    .hero {
+      background: linear-gradient(rgba(0,21,64,0.78), rgba(0,21,64,0.88)),
+                  url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      color: white;
+      padding: 180px 5% 140px;
+      text-align: center;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,87,183,0.35), rgba(0,21,64,0.75));
+      z-index: 1;
+    }
+    .hero > * { position: relative; z-index: 2; }
+    .hero h1 {
+      font-size: 2.9rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.5);
+    }
+    .hero h1 span { color: var(--amarelo-sol); }
+    .hero .subtitulo {
+      font-size: 1.45rem;
+      font-weight: 400;
+      margin-bottom: 1.2rem;
+      opacity: 0.92;
+    }
+    .hero .apoio {
+      font-size: 1.15rem;
+      max-width: 820px;
+      margin: 0 auto 2rem;
+      opacity: 0.88;
+      line-height: 1.6;
+    }
+
+    .btn {
+      background: var(--amarelo-sol);
+      color: #000;
+      font-weight: 700;
+      padding: 1rem 2.4rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.15rem;
+      box-shadow: 0 5px 15px rgba(255,222,33,0.35);
+      transition: all 0.3s;
+    }
+    .btn:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(255,222,33,0.5); }
+
+    .servicos { padding: 120px 5% 100px; background: white; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .titulo-secao { text-align: center; margin-bottom: 4rem; }
+    .titulo-secao h2 { font-size: 2.6rem; color: var(--azul-conf); }
+
+    .grid-servicos { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.2rem; }
+    .card { background: var(--cinza-claro); border-radius: 14px; padding: 2.4rem; text-align: center; transition: all 0.35s; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 14px 35px rgba(0,87,183,0.15); }
+    .card h3 { color: var(--azul-conf); margin: 1.2rem 0 0.8rem; font-size: 1.4rem; }
+    .card p { color: #555; font-size: 1rem; line-height: 1.6; text-align: left; white-space: pre-wrap; }
+    .card a { color: var(--azul-conf); font-weight: 600; text-decoration: none; display: block; margin-top: 1rem; }
+    .card a:hover { color: var(--amarelo-sol); }
+
+    .sobre { padding: 100px 5%; background: var(--cinza-claro); text-align: center; }
+    .sobre h2 { font-size: 2.8rem; color: var(--azul-conf); margin-bottom: 1.5rem; }
+    .sobre p { font-size: 1.15rem; max-width: 900px; margin: 0 auto 1.5rem; color: #444; }
+    .sobre ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.8rem 3rem; margin: 2rem 0; font-size: 1.15rem; }
+    .sobre li { color: var(--azul-conf); font-weight: 500; }
+
+    footer { background: var(--azul-escuro); color: white; padding: 4rem 5% 2rem; text-align: center; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 3rem; max-width: 1200px; margin: 0 auto 3rem; text-align: left; }
+    footer h4 { color: var(--amarelo-sol); margin-bottom: 1rem; font-size: 1.2rem; }
+    footer .logo-footer { font-size: 1.3rem; letter-spacing: -0.8px; text-transform: uppercase; color: var(--amarelo-sol); margin-bottom: 0.8rem; }
+    footer a { color: #d0e0ff; text-decoration: none; }
+    footer a:hover { color: var(--amarelo-sol); }
+    .copyright { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 2rem; margin-top: 2rem; font-size: 0.95rem; opacity: 0.8; }
+
+    #whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 9999;
+      width: 65px;
+      height: 65px;
+      background: #25D366;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #whatsapp-float img {
+      width: 70%;
+      height: 70%;
+    }
+    #whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(37,213,102,0.5);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.4rem; }
+      .hero .subtitulo { font-size: 1.3rem; }
+      .hero .apoio { font-size: 1.05rem; }
+      .menu { gap: 1.4rem; font-size: 0.95rem; flex-wrap: wrap; justify-content: center; }
+      .logo { font-size: 1.4rem; letter-spacing: -0.6px; }
+      #whatsapp-float { width: 55px; height: 55px; bottom: 15px; right: 15px; }
+    }
+
+    /* Estilos da seção de Planos */
+    .plan-section {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #003366;
+      color: white;
+      overflow-x: hidden;
+      padding: 50px 20px;
+    }
+
+    .plan-section .header {
+      text-align: center;
+      margin-bottom: 50px;
+      animation: fadeInDown 1s ease forwards;
+    }
+
+    .plan-section .header h1 {
+      font-size: 36px;
+      margin-bottom: 15px;
+      color: #FFD700;
+    }
+
+    .plan-section .header p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .plan-section .header a {
+      display: inline-block;
+      padding: 14px 28px;
+      background: linear-gradient(45deg, #FFD700, #FFC700, #FFD700);
+      background-size: 300% 300%;
+      color: #003366;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+      font-size: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .plan-section .header a:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes pulse {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .plan-section .plans {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .plan-section .plan {
+      background-color: #004080;
+      padding: 30px;
+      border-radius: 15px;
+      flex: 1;
+      min-width: 320px;
+      display: flex;
+      flex-direction: column;
+      transform: translateY(50px);
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    .plan-section .plan:nth-child(1) { animation-delay: 0.2s; }
+    .plan-section .plan:nth-child(2) { animation-delay: 0.4s; }
+    .plan-section .plan:nth-child(3) { animation-delay: 0.6s; }
+
+    @keyframes fadeInUp {
+      0% { transform: translateY(50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .plan-section .plan h2 {
+      font-size: 24px;
+      margin-bottom: 0;
+      text-align: center;
+      color: #FFD700;
+    }
+
+    .plan-section .plan .spacer {
+      height: 45px;
+    }
+    .plan-section .plan.microempresa .spacer {
+      height: 30px;
+    }
+
+    .plan-section .plan .investment {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 0 0 20px 0;
+      text-align: center;
+      color: #FFD700;
+      min-height: 24px; 
+    }
+
+    .plan-section .plan .content {
+      flex-grow: 1;
+      overflow: auto;
+    }
+
+    .plan-section .plan p, 
+    .plan-section .plan li {
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .plan-section .plan ul {
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    .plan-section .plan a {
+      display: inline-block;
+      padding: 14px 28px;
+      background: linear-gradient(45deg, #FFD700, #FFC700, #FFD700);
+      background-size: 300% 300%;
+      color: #003366;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: auto;
+      align-self: center;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .plan-section .plan a:hover {
+      transform: scale(1.1);
+    }
+
+    .plan-section .plan:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    .plan-section .general-observation {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .plan-section .general-observation p {
+      font-size: 13px;
+      color: white;
+    }
+
+    .plan-section .footer-note {
+      text-align: center;
+      font-size: 12px;
+      margin-top: 40px;
+      color: #CCCCCC;
+    }
+
+    @media(max-width: 1200px) {
+      .plan-section .plans {
+        flex-direction: column;
+        align-items: center;
+      }
+      .plan-section .plan .investment {
+        min-height: auto;
+      }
+      .plan-section .plan.microempresa .spacer {
+        height: 45px; 
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#" class="logo">CONTAPILAR</a>
+    <ul class="menu">
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#planos">Planos</a></li>
+      <li><a href="#sobre">Sobre Nós</a></li>
+      <li><a href="https://contapilarpay.netlify.app/" target="_blank" rel="noopener noreferrer">Pagamentos</a></li>
+      <li><a href="https://wa.me/message/SV6QGFXTU4WNP1">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="inicio" class="hero">
+  <div class="container">
+    <h1>Contabilidade estratégica, segurança e crescimento empresarial.</h1>
+    <div class="subtitulo">Atuação contábil focada em Simples Nacional, Profissionais Liberais e MEI.</div>
+    <div class="apoio">Ajudamos empresas a organizar a gestão contábil e tomar decisões com mais segurança desde o início.</div>
+    <a href="https://wa.me/message/SV6QGFXTU4WNP1" class="btn">ATENDIMENTO CONTÁBIL</a>
+  </div>
+</section>
+
+<section id="servicos" class="servicos">
+  <div class="container">
+    <div class="titulo-secao">
+      <h2>Nossos Serviços</h2>
+      <p>Soluções completas para seu negócio. Atendemos profissionais liberais, MEI, pequenas e médias empresas no Simples Nacional e regimes especiais.</p>
+    </div>
+
+    <div class="grid-servicos">
+      <div class="card">
+        <h3>Profissionais Liberais</h3>
+        <p>Contabilidade especializada para médicos, dentistas, advogados, engenheiros, psicólogos e outros: Carnê-Leão, IRPF, ISS, planejamento tributário.</p>
+        <a href="#contato">Saiba mais →</a>
+      </div>
+      <div class="card">
+        <h3>Abertura e Legalização de Empresas</h3>
+        <p>Processo ágil e completo: abertura, enquadramento tributário ideal, regularização, alvarás, licenças e adequação junto a todos os órgãos.</p>
+        <a href="#contato">Saiba mais →</a>
+      </div>
+      <div class="card">
+        <h3>MEI</h3>
+        <p>Abertura, regularização, troca de contador, DAS, declarações anuais e planejamento para Microempreendedores Individuais.</p>
+        <a href="#contato">Saiba mais →</a>
+      </div>
+      <div class="card">
+        <h3>Empresas PJ Simples Nacional</h3>
+        <p>Escrituração contábil obrigatória e apuração do Simples Nacional DAS<br>Entrega de obrigações acessórias PGDAS-D DEFIS e DCTFWeb quando aplicável<br>Pró-labore dos sócios INSS e acompanhamento do enquadramento no Simples Nacional<br>Monitoramento fiscal e apoio contábil com relatórios para gestão segura</p>
+        <a href="#contato">Saiba mais →</a>
+      </div>
+      <div class="card">
+        <h3>Gestão Tributária</h3>
+        <p>Planejamento fiscal completo para garantir conformidade e eficiência tributária máxima.</p>
+        <a href="#contato">Saiba mais →</a>
+      </div>
+      <div class="card">
+        <h3>Departamento Pessoal</h3>
+        <p>Gestão completa da folha de pagamento, benefícios e obrigações trabalhistas.</p>
+        <a href="#contato">Saiba mais →</a>
+      </div>
+      <div class="card">
+        <h3>Consultoria Contábil</h3>
+        <p>Análise estratégica dos seus números para tomada de decisões assertivas e redução de custos.</p>
+        <a href="#contato">Saiba mais →</a>
+      </div>
+      <div class="card">
+        <h3>BPO</h3>
+        <p>Terceirização da gestão Financeira, Fiscal e DP para que você foque exclusivamente no crescimento da sua empresa.</p>
+        <a href="#contato">Saiba mais →</a>
+      </div>
+      <div class="card">
+        <h3>Regularização Fiscal e Contábil</h3>
+        <p>Análise e regularização de pendências fiscais e contábeis para evitar multas, bloqueios, exclusões de regimes e risks ao CNPJ ou CPF.</p>
+        <a href="#contato">Saiba mais →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="planos" class="plan-section">
+  <div class="header">
+    <h1>Planos de Contabilidade e Consultoria Empresarial</h1>
+    <p>Atendimento personalizado com contador via WhatsApp para tirar dúvidas e receber orientação completa.</p>
+    <a href="https://api.whatsapp.com/message/SV6QGFXTU4WNP1?autoload=1&app_absent=0" target="_blank">Fale Agora</a>
+  </div>
+
+  <div class="plans">
+    <div class="plan">
+      <h2>MEI</h2>
+      <div class="spacer"></div>
+      <div class="investment">Investimento inicial a partir de R$ 59,90/mês</div>
+      <div class="content">
+        <p>Serviços Contábeis, Assessoria e Consultoria. Atendimento personalizado via WhatsApp com contador. Acesso à nossa Área do Cliente na plataforma.</p>
+        <ul>
+          <li>Abertura e Registro do MEI (CNAE e CNPJ regularizados)</li>
+          <li>Geração, Emissão e Envio da Guia DAS Mensal</li>
+          <li>Monitoramento do MEI para Desiquadramento</li>
+          <li>Declaração Anual do MEI (DASN-SIMEI)</li>
+          <li>Regularizações e Pendências junto à Receita Federal e Prefeitura</li>
+          <li>Consultoria Contábil e Tributária Contínua</li>
+          <li>Encerramento ou Baixa do MEI</li>
+          <li>Observação: Departamento Pessoal e Folha de Pagamento opcionais, cobrados à parte</li>
+        </ul>
+      </div>
+      <a href="https://api.whatsapp.com/message/SV6QGFXTU4WNP1?autoload=1&app_absent=0" target="_blank">Assinar Plano MEI</a>
+    </div>
+
+    <div class="plan">
+      <h2>Profissionais Liberais</h2>
+      <div class="spacer"></div>
+      <div class="investment">Investimento inicial a partir de R$ 149,90/mês</div>
+      <div class="content">
+        <p>Serviços Contábeis Completos para Profissionais Liberais e Autônomos. Atendimento personalizado via WhatsApp com contador. Acesso à nossa Área do Cliente na plataforma.</p>
+        <ul>
+          <li>Abertura e Registro de Atividade Profissional (CNAE e enquadramento tributário, orientação para CNPJ se vantajoso)</li>
+          <li>Emissão, Controle e Envio de Tributos (Carne Leão, ISS, INSS, E CAC)</li>
+          <li>Escrituração Mensal de Livro Caixa e Controle Financeiro</li>
+          <li>Consultoria e Assessoria Contábil Contínua</li>
+          <li>Regularizações e Pendências Fiscais</li>
+          <li>Declarações e Certidões (CND e comprovantes de situação fiscal)</li>
+          <li>Encerramento ou Alteração de Atividade Profissional</li>
+          <li>Observação: Serviços adicionais como Departamento Pessoal/Folha de Pagamento opcionais</li>
+        </ul>
+      </div>
+      <a href="https://api.whatsapp.com/message/SV6QGFXTU4WNP1?autoload=1&app_absent=0" target="_blank">Assinar Plano Profissionais</a>
+    </div>
+
+    <div class="plan microempresa">
+      <h2>Microempresa - Simples Nacional</h2>
+      <div class="spacer"></div>
+      <div class="investment">Investimento inicial a partir de R$ 169,00/mês</div>
+      <div class="content">
+        <p>Para microempresas com faturamento de até R$ 10.000/mês e até 3 folhas de pagamento (pró-labore e/ou funcionários). Atendimento personalizado via WhatsApp com contador. Acesso à nossa Área do Cliente na plataforma.</p>
+        <ul>
+          <li>Consulta de Viabilidade e Planejamento Inicial (CNAE, regime tributário, estratégias fiscais)</li>
+          <li>Abertura de Empresa e Registro Completo (CNPJ, Inscrição Estadual/Municipal, Contrato Social)</li>
+          <li>Emissão, Controle e Envio de Tributos (Simples Nacional Anexos I a V, INSS patronal e outros)</li>
+          <li>Obrigações Acessórias e Fiscais (DCTF, EFD-Contribuições, DAS, certidões e comprovantes fiscais)</li>
+          <li>Assessoria em Pró-Labore e Contratação de Funcionários</li>
+          <li>Gestão de Departamento Pessoal / Folha de Pagamento completa</li>
+          <li>Monitoramento e Acompanhamento Contábil Contínuo</li>
+          <li>Consultoria Estratégica e Planejamento Tributário</li>
+          <li>Observações: Auditoria interna, BPO Financeiro e outros serviços diversos podem ser oferecidos ou contratados conforme necessidade e demanda, mediante solicitação e contratação específica.</li>
+        </ul>
+      </div>
+      <a href="https://api.whatsapp.com/message/SV6QGFXTU4WNP1?autoload=1&app_absent=0" target="_blank">Assinar Plano Microempresa</a>
+    </div>
+  </div>
+
+  <div class="general-observation">
+    <p>Empresas com faturamento superior a R$ 10.000/mês ou com maior número de folhas deverão consultar valores de planos específicos de acordo com a demanda exigida. Taxas de órgãos competentes são cobradas separadamente do cliente e não estão incluídas nos valores dos planos oferecidos nos serviços contábeis.</p>
+  </div>
+
+  <div class="footer-note">
+    Os valores correspondem ao período contratado, com cobrança mensal, sem fidelidade obrigatória. Podem ser reajustados anualmente em janeiro ou mediante aviso prévio ao cliente.
+  </div>
+</div>
+
+<section id="sobre" class="sobre">
+  <div class="container">
+    <h2>Mais que contabilidade, somos seus parceiros de negócios</h2>
+    <p>A Contapilar nasceu com o propósito de simplificar a vida do empreendedor brasileiro. Acreditamos que a contabilidade não deve ser apenas uma obrigação burocrática, mas sim uma ferramenta estratégica para o crescimento.</p>
+    <p>Somos apaixonados por entregar resultados. Utilizamos tecnologia de ponta para garantir agilidade, segurança e transparência em todos os processos.</p>
+    <ul>
+      <li>Atendimento personalizado e humanizado</li>
+      <li>Tecnologia e automação de processos</li>
+      <li>Foco total na segurança dos dados</li>
+    </ul>
+  </div>
+</section>
+
+<footer id="contato">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4 class="logo-footer">CONTAPILAR</h4>
+        <p>Contabilidade consultiva focada no crescimento sustentável do seu negócio. Tranquilidade e segurança para você empreender.</p>
+      </div>
+      <div>
+        <h4>Atendimento</h4>
+        <p><strong>Atendemos em Todo o Território Nacional - Brasil</strong></p>
+      </div>
+      <div>
+        <h4>Entre em contato</h4>
+        <p style="margin: 1rem 0;">
+          <a href="https://wa.me/message/SV6QGFXTU4WNP1" target="_blank" class="btn" style="padding: 0.8rem 1.5rem; font-size: 1rem;">
+            ATENDIMENTO CONTÁBIL
+          </a>
+        </p>
+      </div>
+      <div>
+        <h4>Redes Sociais & Links</h4>
+        <p style="margin: 0.5rem 0;"><a href="https://www.instagram.com/contapilar" target="_blank">Instagram @contapilar</a></p>
+        <p style="margin: 0.5rem 0;"><a href="https://linktr.ee/CONTAPILAR" target="_blank">Linktree Contapilar</a></p>
+        <p style="margin: 0.5rem 0;"><a href="https://contapilarpay.netlify.app/" target="_blank">Pagamentos</a></p>        
+        <p style="margin: 0.5rem 0;">📧 <a href="mailto:contapilar@yahoo.com">contapilar@yahoo.com</a></p>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2026 Contapilar. Todos os direitos reservados.
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/message/SV6QGFXTU4WNP1" target="_blank" id="whatsapp-float" title="Fale conosco no WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp">
+</a>
+
+</body>
+</html>
